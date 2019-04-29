@@ -1,3 +1,5 @@
 itour/__pycache__/
+profileapp/__pycache__/
+*.pyc
 media/
 db.sqlite3
