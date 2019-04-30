@@ -6,9 +6,9 @@ from bootstrap_datepicker_plus import DatePickerInput
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['startdate', 'enddate']
+        fields = ['tour', 'number_of_people', 'start_date', 'end_date', 'price']
         widgets = {
         # format='%d-%m-%Y'
-            'startdate': DatePickerInput(), # default date-format %m/%d/%Y will be used
-            'enddate': DatePickerInput(), # specify date-frmat
+            'start_date': DatePickerInput(), # default date-format %m/%d/%Y will be used
+            'end_date': DatePickerInput(), # specify date-frmat
         }
