@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Tour
 from .forms import TourForm
 from django.db.models import Q
-
+from django.contrib.auth.decorators import permission_required, login_required
 
 # Create your views here.
 def index(request):
@@ -41,11 +41,11 @@ def search_tours(request):
 			'text': text,
 		})
 
+@permission_required('tour.add_tour', login_url='signin')
 def add_tour(request):
 	form = TourForm()
 	if request.method == "POST":
 		form = TourForm(request.POST, request.FILES)
-		print(form)
 		if form.is_valid:
 			form.save()
 			return redirect('tour:index')
@@ -53,3 +53,23 @@ def add_tour(request):
 	return render(request, 'add_tour.html', {
 			'form': form
 		})
+
+@permission_required('tour.edit_tour', login_url='signin')
+def edit_tour(request, tour_id):
+	tour = Tour.objects.get(pk=tour_id)
+	form = TourForm(instance=tour)
+	if request.method == "POST":
+		form = TourForm(request.POST, request.FILES, instance=tour)
+		if form.is_valid:
+			form.save()
+			return redirect('tour:index')
+
+	return render(request, 'edit_tour.html', {
+			'form': form,
+			'tour': tour
+		})
+
+@permission_required('tour.delete_tour', login_url='signin')
+def delete_tour(request, tour_id):
+	tour = Tour.objects.filter(pk=tour_id).delete()
+	return redirect('tour:index')
