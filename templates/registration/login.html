@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row">
+	<aside class="col-sm-4">
+
+
+	</aside> <!-- col.// -->
+	<aside class="col-sm-4">
+		<h2>Login</h2>
+
+		<div class="card">
+
+			<article class="card-body">
+				<form method="post">
+				  {% csrf_token %}
+
+				  {{ form.as_p }}
+				  <button type="submit" class="btn btn-primary">Login</button> <a href="{% url 'signup' %}">Signup</a><br>
+				  <a href="{% url 'password_reset' %}">forget password</a>
+				</form>
+			</article>
+		</div>
+	</aside>
+
+	<aside class="col-sm-4">
+
+	</aside> <!-- col.// -->
+</div>
+{% endblock %}
