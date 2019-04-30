@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .forms import BookingForm
 
-def index(request):
-	return HttpResponse ('Working')
+def create(request):
+	form = BookingForm(request.POST)
+	return render(request, 'booking.html', {
+            'form': form,
+       	})
+
