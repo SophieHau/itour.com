@@ -3,8 +3,5 @@ from django.contrib.auth.models import User
 
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    tour = models.ForeignKey('self', on_delete=models.CASCADE)
-    CheckIn = models.DateField()
-    CheckOut = models.DateField()
-    totalPrice = models.IntegerField(default=0)
+	startdate = models.DateField(blank=True, null=True)
+	enddate = models.DateField(blank=True, null=True)
