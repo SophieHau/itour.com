@@ -1,8 +1,8 @@
-profileapp/__pycache__
+profileapp/__pycache__/
+profileapp/migrations/
 *.pyc
 media/
 db.sqlite3
->>>>>>> profile
 tour/__pycache__
 tour/migrations
 media/
