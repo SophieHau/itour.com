@@ -1,11 +1,6 @@
 profileapp/__pycache__/*.pyc
 profileapp/migrations/*.pyc
 *.pyc
-media/
-db.sqlite3
-tour/__pycache__
-tour/migrations
-media/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
