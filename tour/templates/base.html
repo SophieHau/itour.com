@@ -21,22 +21,22 @@
 {% block nav %}
 
   <nav class="navbar navbar-expand-md sticked-top navbar-light shadow-sm mb-5 bg-white" >
-    <a href="#"> <img src="{% static 'icons/apple-touch-icon.png' %}" width="45" height="45">
+    <a href="{% url 'tour:index' %}"> <img src="{% static 'icons/apple-touch-icon.png' %}" width="45" height="45">
 </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto ml-3">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'tour:index' %}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Our tours
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="{% url 'tour:show_all_tours' %}">All</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -49,15 +49,16 @@
           <a class="nav-link" href="#">About us</a>
         </li>
       </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search our tours" aria-label="Search">
+      <form class="form-inline mt-2 mt-md-0" method="POST" action="{% url 'tour:search_tours' %}">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search our tours" aria-label="Search">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
       </form>
         <div class="inline-block">
           <ul class="navbar-nav mr-auto">
          {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ user }}</a>
+          <a class="nav-link" href="#">{{ user|capfirst }}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Logout</a>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container m-5 justify-content-center">
+	<div class="row ">
+		<div class="col-md-8 mr-4">
+			
+			<h1>
+				{{ tour.name }}
+			</h1>
+			<img src="/media/{{ tour.pic }}" class="img-fluid">
+			<p>Offered by {{ tour.company }}</p>
+			{% if tour.length > 1 %}
+            		<h3>{{ tour.length }} days in {{ tour.location }}</h3>
+            		{% else %}
+            		<h3>{{ tour.length }} day in {{ tour.location }}</h3>
+            		{% endif %}
+			<p>{{ tour.description }}</p>
+		</div>
+		<div class="col-md-3 mt-5">
+			<h4> {{ tour.price }}$/pers.  <button type="button" class="btn btn-info btn-lg mt-3">Book Now</button></h4>
+			
+			<div id="map-container-google-1" class="z-depth-1-half map-container mt-4">
+			  <iframe src="https://maps.google.com/maps?q={{ tour.location }}&t=&z=13&ie=UTF8&iwloc=&output=embed" height="300" width="400" frameborder="0"
+    			style="border:0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

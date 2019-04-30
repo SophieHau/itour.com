@@ -1,5 +1,3 @@
 __pycache__/
 db.sqlite3
 tour/__pycache__
-tour/migrations
-media/
