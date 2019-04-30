@@ -1,5 +1,5 @@
-profileapp/__pycache__/
-profileapp/migrations/
+profileapp/__pycache__/*.pyc
+profileapp/migrations/*.pyc
 *.pyc
 media/
 db.sqlite3
