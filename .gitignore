@@ -1,6 +1,6 @@
-tour/__pycache__
-tour/migrations
-media/
+profileapp/__pycache__/*.pyc
+profileapp/migrations/*.pyc
+*.pyc
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
