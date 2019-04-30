@@ -1,5 +1,3 @@
-profileapp/__pycache__/*.pyc
-profileapp/migrations/*.pyc
 *.pyc
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -45,6 +43,4 @@ docs/_build/
 # Database
 db.sqlite3
 env/
-**/migrations/**
-!**/migrations
-!**/migrations/__init__.py
+
