@@ -46,7 +46,7 @@ def signin(request):
 		print(user)
 		if user is not None:
 			login(request, user)
-			return redirect('profile')
+			return redirect('tour:index')
 		else:
 			# flash('This is error message', 'error')
 			messages.add_message(request, messages.ERROR, 'Wrong user or password')

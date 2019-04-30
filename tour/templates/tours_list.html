@@ -5,7 +5,12 @@
 	<div class="row ">
 
 		<div class="col">
-			<h1 class="mb-4">Our Tours:</h1>
+			
+			<h1 class="mb-4">Our Tours:
+				{% if perms.tour.can_delete_tour %}
+			 <a class="btn btn-secondary" href="{% url 'tour:add_tour' %}" role="button">Add</a>
+			 {% endif %}
+			</h1>
 			{% for tour in tours %}
 			 <div class="card mb-3 float-right mr-2" style="max-width: 540px;">
 			  <div class="row no-gutters">
