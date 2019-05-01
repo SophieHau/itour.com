@@ -1,3 +1,5 @@
+tour/templates/oldbase.html
+media/images/Scan0004*.jpg
 *.pyc
 # Byte-compiled / optimized / DLL files
 __pycache__/
