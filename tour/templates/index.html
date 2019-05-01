@@ -71,12 +71,23 @@
                 </div>
                 <small class="text-muted">{{ tour.price }}$</small>
               </div>
-          		</div>
-            	</div>
-
+              <p>
+              <div class="container card">
+              Last reviews
+              	<ul>
+              {% for review in tour.review_set.all|slice:"0:3" %}
+                <li>
+                {{ review.user }} - {{ review.date }} <br>
+                <span class="badge badge-primary">{{ review.rating }}	</span>
+            	</li>
+              {% endfor %}
+            	</ul>
+          	  </div>
+            </div>
           	</div>
           	{% endfor %}
         </div>  
+          		</div>
     </div>
     
     <div class="container">

@@ -64,7 +64,7 @@
 			    	<ul>
 				{% for review in reviews %}
 			    <row><li>{{ review.user }} in {{ review.date }}
-			    <span class="badge badge-light">{{review.rating}}</li></row><br></span>
+			    <span class="badge badge-pill badge-primary">{{review.rating}}</li></row><br></span>
 			    {{ review.text }}</li><p>
 				{% endfor %}
 			</ul>
