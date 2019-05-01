@@ -36,3 +36,5 @@ def make_payment(request, booking_id):
 			'booking': booking
 		})
 
+
+
