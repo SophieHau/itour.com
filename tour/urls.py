@@ -11,4 +11,5 @@ urlpatterns = [
 	path('tours/add', views.add_tour, name='add_tour'),
 	path('tours/edit/<int:tour_id>', views.edit_tour, name='edit_tour'),
 	path('tours/delete/<int:tour_id>)', views.delete_tour, name='delete_tour'),
+	path('contact/', views.send_message, name='send_message'),
 ]
