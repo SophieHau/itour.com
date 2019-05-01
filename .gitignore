@@ -1,11 +1,6 @@
-profileapp/__pycache__/*.pyc
-profileapp/migrations/*.pyc
+tour/templates/oldbase.html
+media/images/Scan0004*.jpg
 *.pyc
-media/
-db.sqlite3
-tour/__pycache__
-tour/migrations
-media/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -50,6 +45,4 @@ docs/_build/
 # Database
 db.sqlite3
 env/
-**/migrations/**
-!**/migrations
-!**/migrations/__init__.py
+

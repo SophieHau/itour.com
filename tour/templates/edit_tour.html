@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-7">
+			<h1>Update: </h1>
+			<form method="POST" class="mt-3" enctype="multipart/form-data" action="{% url 'tour:edit_tour' tour.id %}">
+				{% csrf_token %}
+				{% for field in form %}
+				<div class="form-group">
+					<label class="card-title"> {{ field.name|capfirst }}: </label>
+	    			<div class="">{{ field }}</div>
+  				</div>
+  				{% endfor %}
+  				<button type="submit" class="btn btn-info">Update</button>
+			</form> 
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

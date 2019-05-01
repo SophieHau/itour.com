@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tour.models import Tour
 
 
 class Booking(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+	number_of_people = models.IntegerField()
+	start_date = models.DateField(blank=True, null=True)
+	end_date = models.DateField(blank=True, null=True)
+	price = models.DecimalField(max_digits=8, decimal_places=2, null=True)
 
-	tour = models.ForeignKey()
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    guestFirstName = models.CharField(max_length  = 255)
-    guestLastName = models.CharField(max_length  = 255)
-    CheckIn = models.DateField()
-    CheckOut = models.DateField()
-    totalPrice = models.IntegerField(default = 0)
+	def __str__(self):
+		return self.user

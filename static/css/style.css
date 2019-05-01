@@ -4,11 +4,24 @@
 }
 
 
-.text{
-    margin:20px 0px;
-}
-
 .fa{
-     color:#a8f9dd;
+     color: gray;
      text-decoration: none;
 }
+
+
+.homepage_card{
+	width: 100%;
+	height: 150px;
+}
+
+.card-img-top{
+	height: 230px;
+}
+
+
+.card-img{
+	height: 110px;
+}
+
+
