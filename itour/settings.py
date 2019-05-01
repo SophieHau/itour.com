@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'booking',
     'bootstrap4',
     'bootstrap_datepicker_plus',
+    'payment',
 ]
 
 BOOTSTRAP4 = {

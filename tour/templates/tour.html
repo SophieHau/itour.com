@@ -41,7 +41,7 @@
             		{% else %}
             		<h2>{{ tour.length }} day in {{ tour.location }}</h2>
             		{% endif %}
-			<h4 class="mt-3 text-muted"> {{ tour.price }}$/pers.  <button type="button" class="btn btn-danger btn-lg mt-4 btn-block">Book Now</button></h4>
+			<h4 class="mt-3 text-muted"> {{ tour.price }}$/pers.  <a href="{% url 'create' %}" role="button" class="btn btn-danger btn-lg mt-4 btn-block">Book Now</a></h4>
 			  </div>
 			</div>
 			
