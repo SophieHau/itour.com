@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="/docs/4.3/assets/css/docs.min.css" rel="stylesheet">
-
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -46,7 +45,7 @@
         </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Booking</a>
+          <a class="nav-link" href="{% url 'create' %}">Booking</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About us</a>
@@ -61,14 +60,14 @@
           <ul class="navbar-nav mr-auto">
          {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ user|capfirst }}</a>
+          <a class="nav-link" href="{% url 'profile' %}">{{ user|capfirst }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="{% url 'signout' %}">Logout</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Sign in</a>
+          <a class="nav-link" href="{% url 'signin' %}">Sign in</a>
         </li>
       </ul>
         {% endif %} 
