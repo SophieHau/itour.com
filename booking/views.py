@@ -18,3 +18,17 @@ def create(request):
 	return render(request, 'booking.html', {
             'form': form,
        	})
+
+
+def show_booking(request, booking_id):
+	booking = Booking.objects.get(pk=booking_id)
+	return render(request, 'my_booking.html', {
+		'booking': booking
+		})
+
+
+def show_all_bookings(request):
+	bookings = Booking.objects.all()
+	return render(request, 'bookings.html', {
+		'bookings': bookings
+		})

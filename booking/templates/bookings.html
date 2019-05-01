@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row ">
+        <div class="col">
+            <h1 class="mb-4">Our Tours:</h1>
+            {% for booking in bookings %}
+            <div class="card mb-3 float-right mr-2" style="max-width: 48%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="/media/{{ booking.tour.pic }}" class="card-img m-3">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body ml-2">
+                            <h5 class="card-title">{{ booking.tour.name }}</h5>
+                            <p class="card-text"><small class="text-muted">{{ booking.tour.price }}$</small></p>
+                            <div class="btn-group">
+                                <a href="" role="button" class="btn btn-sm btn-outline-info mr-2">More Info</a>
+                                <button type="button" class="btn btn-sm btn-outline-info">Booking details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
