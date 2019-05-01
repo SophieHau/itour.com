@@ -49,6 +49,9 @@
           <a class="nav-link" href="#">Booking</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#">Review</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">About us</a>
         </li>
       </ul>
@@ -61,14 +64,14 @@
           <ul class="navbar-nav mr-auto">
          {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ user|capfirst }}</a>
+          <a class="nav-link" href="{% url 'profile' %}">{{ user|capfirst }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="{% url 'signout' %}">Logout</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Sign in</a>
+          <a class="nav-link" href="{% url 'signin' %}">Sign in</a>
         </li>
       </ul>
         {% endif %} 

@@ -58,8 +58,20 @@
 			
 			  </div>
 			<div class="mt-2 shadow p-3 mb-5 bg-white rounded">
-			    <p class="card-text">{{ tour.description }}</p>
+			    <p class="card-text">{{ tour.description }}
+			    	<div class="container card">
+			    	<h5>Reviews</h5>
+			    	<ul>
+				{% for review in reviews %}
+			    <row><li>{{ review.user }} in {{ review.date }}
+			    <span class="badge badge-light">{{review.rating}}</li></row><br></span>
+			    {{ review.text }}</li><p>
+				{% endfor %}
+			</ul>
+			</p>
+		</div>
 			</div>
+
 			<hr>
 		</div>
 		<div class="col-4">
@@ -80,28 +92,4 @@
 			</div>
 		</div>
 	</div>
-	<div class="row justify-content-left">
-		<div class="col-6">
-			<h2>
-				Reviews
-			</h2>
-		<div class="media mt-5">
-		  <img src="..." class="mr-3" alt="...">
-		  <div class="media-body">
-		    <h5 class="mt-0">Media heading</h5>
-		    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-		    <div class="media mt-3">
-		      <a class="mr-3" href="#">
-		        <img src="..." class="mr-3" alt="...">
-		      </a>
-		      <div class="media-body">
-		        <h5 class="mt-0">Media heading</h5>
-		        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-		      </div>
-		    </div>
-		  </div>
-
-</div>
-</div>
 {% endblock %}
