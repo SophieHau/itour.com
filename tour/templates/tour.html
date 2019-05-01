@@ -64,7 +64,38 @@
 			    	<ul>
 				{% for review in reviews %}
 			    <row><li>{{ review.user }} in {{ review.date }}
-			    <span class="badge badge-pill badge-primary">{{review.rating}}</li></row><br></span>
+			    
+			    <row align="center">
+               
+                {% if review.rating == 'excelent' %}
+                {% for i in i|rjust:5  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+                
+                {% if review.rating == 'good' %}
+                 {% for i in i|rjust:4  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'fair' %}
+                {% for i in i|rjust:3  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'poor' %}
+                {% for i in i|rjust:2  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'bad' %}
+                  <i class="fa fa-star text-success"></i>
+                {% endif %}
+              </row>
+
 			    {{ review.text }}</li><p>
 				{% endfor %}
 			</ul>

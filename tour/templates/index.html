@@ -73,15 +73,39 @@
               </div>
               <p>
               <div class="container card">
-              Last reviews
-              	<ul>
-              {% for review in tour.review_set.all|slice:"0:3" %}
-                <li>
-                {{ review.user }} - {{ review.date }} <br>
-                <span class="badge badge-primary">{{ review.rating }}	</span>
-            	</li>
+                            	
+              {% for review in tour.review_set.all|slice:"0:1" %}
+                <row align="center">
+               
+                {% if review.rating == 'excelent' %}
+                {% for i in i|rjust:5  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+                
+                {% if review.rating == 'good' %}
+                 {% for i in i|rjust:4  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'fair' %}
+                {% for i in i|rjust:3  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'poor' %}
+                {% for i in i|rjust:2  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'bad' %}
+                  <i class="fa fa-star text-success"></i>
+                {% endif %}
+              </row>
               {% endfor %}
-            	</ul>
           	  </div>
             </div>
           	</div>
