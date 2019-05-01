@@ -2,7 +2,78 @@
 {% load static %}
 {% block content %}
 
-<h1>My Booking working</h1>
-<h2>{{ booking.id }}</h2>
+<div class="container justify-content-between mb-5">
+	<div class="row ">
+		<div class="col-md-8">
+			<h1>
+				{{ booking.tour.name }}  
+			</h1>
+			<h6 class="text-muted"> By {{ booking.tour.company }}</h6>
+			<img src="/media/{{ booking.tour.pic }}" class="img-fluid mt-3">
+			<div class="mt-2">
+				<h6>
+					<a class="btn btn-social-icon btn-facebook">
+					<span class="fa fa-facebook"></span>
+				  	</a> 
+				  	<a class="btn btn-social-icon btn-instagram">
+					<span class="fa fa-instagram"></span>
+				  	</a> 
+				  	<a class="btn btn-social-icon btn-twitter">
+					<span class="fa fa-twitter"></span>
+				  	</a> 
+				  	<a class="btn btn-social-icon btn-pinterest">
+					<span class="fa fa-pinterest"></span>
+				  	</a>
+				</h6>
+			</div>
+			<div class="mt-2 shadow p-3 mb-5 bg-white rounded">
+				<p class="card-text">{{ booking.tour.description }}</p>
+			</div>
+			<hr>
+		</div>
+
+		<div class="col-4">
+			<div class="card bg-white mb-3">
+			  <div class="card-body">
+				{% if booking.tour.length > 1 %}
+					<h2 class="card-title">{{ booking.tour.length }} days in {{ booking.tour.location }}</h2>
+					{% else %}
+					<h2>{{ booking.tour.length }} day in {{ tour.location }}</h2>
+					{% endif %}
+					<h4 class="mt-3 text-muted"> {{ booking.tour.price }}$/pers.</h4>
+			  </div>
+			</div>
+				<div id="map-container-google-1" class="z-depth-1-half map-container mt-4">
+				  <iframe src="https://maps.google.com/maps?q={{ tour.location }}&t=&z=13&ie=UTF8&iwloc=&output=embed" height="300" width="100%" frameborder="0"
+	    			style="border:0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	
+	<div class="row justify-content-left">
+		<div class="col-6">
+			<h2>
+				Reviews
+			</h2>
+			<div class="media mt-5">
+			  <img src="..." class="mr-3" alt="...">
+			  <div class="media-body">
+				<h5 class="mt-0">Tour Talk</h5>
+				He took an orange from the cupboard, and tearing it to pieces he squeezed out the pips upon the table. Of these he took five and thrust them into an envelope. On the inside of the flap he wrote "S. H. for J. O." Then he sealed it and addressed it to "Captain James Calhoun, Barque 'Lone Star,' Savannah, Georgia."
+
+				<div class="media mt-3">
+				  <a class="mr-3" href="#">
+					<img src="..." class="mr-3" alt="...">
+				  </a>
+				  <div class="media-body">
+					<h5 class="mt-0">Talking Tours</h5>
+					"That will await him when he enters port," said he, chuckling. "It may give him a sleepless night. He will find it as sure a precursor of his fate as Openshaw did before him."
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
 
 {% endblock %}
