@@ -50,10 +50,13 @@
 
 	
 	</div>
+	{% for tour in tours %}	
 		<div class="container mt-5 mb-5">
+
 		<div class="row">
-							{% for tour in tours %}
+					
 			<div class="col-md-4">
+
 				<div class="card mb-4 shadow-sm">
             	<img class="card-img-top" src="media/{{ tour.pic }}">
             	<div class="card-body">
@@ -109,10 +112,13 @@
           	  </div>
             </div>
           	</div>
-          	{% endfor %}
+          	
         </div>  
+
           		</div>
+
     </div>
+    {% endfor %}
     
     <div class="container">
     	<hr>
