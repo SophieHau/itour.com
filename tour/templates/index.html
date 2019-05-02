@@ -71,12 +71,47 @@
                 </div>
                 <small class="text-muted">{{ tour.price }}$</small>
               </div>
-          		</div>
-            	</div>
+              <p>
+              <div class="container card">
+                            	
+              {% for review in tour.review_set.all|slice:"0:1" %}
+                <row align="center">
+               
+                {% if review.rating == 'excelent' %}
+                {% for i in i|rjust:5  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+                
+                {% if review.rating == 'very good' %}
+                 {% for i in i|rjust:4  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
 
+                {% if review.rating == 'good' %}
+                {% for i in i|rjust:3  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'fair' %}
+                {% for i in i|rjust:2  %}
+                 <i class="fa fa-star text-success"></i>
+                {% endfor %}
+                {% endif %}
+
+                {% if review.rating == 'poor' %}
+                  <i class="fa fa-star text-success"></i>
+                {% endif %}
+              </row>
+              {% endfor %}
+          	  </div>
+            </div>
           	</div>
           	{% endfor %}
         </div>  
+          		</div>
     </div>
     
     <div class="container">

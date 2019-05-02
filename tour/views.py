@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Tour
+from review.models import Review
 from .forms import TourForm
 from django.db.models import Q
 from django.contrib.auth.decorators import permission_required, login_required
@@ -14,10 +15,16 @@ def index(request):
         })
 
 def show_tour(request, tour_id):
-    tour = Tour.objects.get(pk=tour_id)
-    return render(request, 'tour.html', {
-            'tour': tour
-        })
+	tour = Tour.objects.get(pk=tour_id)
+	print(tour)
+	reviews = Review.objects.filter(tour=tour)
+	# reviews = Review.objects.get(tour=tour)
+	print(reviews)
+	return render(request, 'tour.html', {
+			'tour': tour,
+			'reviews': reviews
+		})
+
 
 def show_all_tours(request):
     tours = Tour.objects.all()

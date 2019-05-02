@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'profileapp.apps.ProfileappConfig',
+    'review.apps.ReviewConfig',
     'tour',
     'booking',
     'bootstrap4',
