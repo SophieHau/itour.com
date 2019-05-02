@@ -19,10 +19,10 @@ def create(request, tour_id=None):
 		form = BookingForm(request.POST)
 		if form.is_valid():
 			booking = form.save(False)
-			print(form)
+
 			booking.user = request.user
 			booking.save()
-			return redirect('tour:index')
+			return redirect('payment:make_payment', booking_id=booking.id)
 	return render(request, 'booking.html', {
             'form': form,
        	})

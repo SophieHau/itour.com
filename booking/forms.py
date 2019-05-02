@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import TextInput
+from django.forms import TextInput, NumberInput
 from .models import Booking
 from bootstrap_datepicker_plus import DatePickerInput
 
@@ -11,4 +11,6 @@ class BookingForm(forms.ModelForm):
         # format='%d-%m-%Y'
             'start_date': DatePickerInput(), # default date-format %m/%d/%Y will be used
             'end_date': DatePickerInput(), # specify date-frmat
+            'price': forms.NumberInput(attrs={'readonly': 'readonly', 'class': 'form-control-plaintext'}),
+            'number_of_people': forms.NumberInput(attrs={'min':1, 'max': 20}), 
         }
