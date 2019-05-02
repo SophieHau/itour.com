@@ -24,4 +24,6 @@
 	height: 110px;
 }
 
-
+.asteriskField {
+	display: none;
+}

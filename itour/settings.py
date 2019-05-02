@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'profileapp.apps.ProfileappConfig',
     'tour',
     'booking',
@@ -150,3 +151,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_files")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+CRISPY_TEMPLATES_PACK = 'bootstrap4'
