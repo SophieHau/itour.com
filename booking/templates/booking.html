@@ -3,6 +3,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {{ form.media }}            {# Adds date-picker required JS and CSS #}
+{% load static %}
+
 
     <div class="container">
       <div class="row justify-content-center">
@@ -15,12 +17,17 @@
                 {% csrf_token %}
                 {{ form|crispy }}
               </table>
-                <button type="submit" class="btn btn-outline-success mt-4">Book</button>
+                <button type="submit" class="btn btn-dark my-2 my-sm-0 mt-4">Book</button>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      const TOUR_DATA = {{ tour_data|safe }}; 
+    </script>
+
+    <script src="{% static '/js/script.js' %}" type="text/javascript" charset="utf-8" async defer></script>
 
 {% endblock %}
