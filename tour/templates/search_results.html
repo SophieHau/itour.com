@@ -14,11 +14,10 @@
 			    <div class="col-md-8">
 			      <div class="card-body ml-2">
 			        <h5 class="card-title">{{ tour.name }}</h5>
-			        <!-- <p class="card_list card-text ">{{ tour.description }}</p> -->
 			        <p class="card-text"><small class="text-muted">{{ tour.price }}$</small></p>
 			        <div class="btn-group">
                   <a href="{% url 'tour:show_tour' tour.id %}" role="button" class="btn btn-sm btn-outline-info mr-2">More Info</a>
-                  <button type="button" class="btn btn-sm btn-outline-info">Book</button>
+                  <a href="{% url 'create' tour.id %}" role="button" class="btn btn-sm btn-outline-info">Book</a>
                 </div>
 			      </div>
 			    </div>

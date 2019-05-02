@@ -4,7 +4,7 @@ from tour.models import Tour
 
 
 class Booking(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 	tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
 	number_of_people = models.IntegerField()
 	start_date = models.DateField(blank=True, null=True)
