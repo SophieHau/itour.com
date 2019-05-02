@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-
-{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
-{% bootstrap_css %}         {# Embed Bootstrap CSS #}
-{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{% load crispy_forms_tags %}
+{% load static %}
 {{ form.media }}            {# Adds date-picker required JS and CSS #}
 {% load static %}
 
 
     <div class="container">
-        <h1>Bookings</h1>
-        <table>
-        <form method="post" action="{% url 'create' %}">
-          {% csrf_token %}
-          {{ form }}
-        </table>
-          <button type="submit" class="btn btn-dark my-2 my-sm-0">Book</button>
-        </form>
+      <div class="row justify-content-center">
+        <div class=col-7>
+          <div class="card">
+            <div class="card-body"> 
+              <h1>Bookings</h1>
+              <table>
+              <form method="post" action="{% url 'create' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+              </table>
+                <button type="submit" class="btn btn-dark my-2 my-sm-0 mt-4">Book</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="text/javascript">
       const TOUR_DATA = {{ tour_data|safe }}; 
