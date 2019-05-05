@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import permission_required, login_required
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import JsonResponse
 
 
 def index(request):

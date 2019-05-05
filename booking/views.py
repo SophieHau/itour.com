@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from . models import Booking
+from review.models import Review
 from tour.models import Tour
 from .forms import BookingForm
 from django.contrib.auth.models import User
 import json
+from django.http import JsonResponse, HttpResponse
+from django.core import serializers
 
 
 def create(request, tour_id=None):
@@ -60,3 +63,29 @@ def get_tours_data():
 def to_json(data):
     json_data = json.dumps(data)
     return json_data
+
+
+def fetch_reviews(request, tour_id):
+    tour = Tour.objects.get(pk=tour_id)
+    # bookings = Booking.objects.filter(tour=tour)
+    # print(bookings)
+    # # data = {
+    #     'bookings': Booking.objects.filter(tour=tour)
+    # }
+    # bookings = Booking.objects.filter(tour=tour).values()
+    bookings = Booking.objects.filter(tour=tour)
+    print(bookings)
+    review = ''
+    for booking in bookings:
+        review = booking.review_booking.all()
+    rating = review[0].rating
+    user = review[0].user
+    date = review[0].date
+    json = {}
+    json['rating'] = rating
+    json['user'] = user.username
+    json['date'] = date
+    print('json')
+    print(json)
+    return JsonResponse(json, safe=False)
+   
