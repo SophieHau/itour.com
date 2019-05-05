@@ -71,16 +71,12 @@
                 </div>
                 <small class="text-muted">{{ tour.price }}$</small>
               </div>
-
+              <hr>
               <p>
-              <div class="container card">
 
               {% for booking in tour.booking_set.all|slice:"0:1" %}
               {% for review in booking.review_booking.all|slice:"0:1" %}   	
-
-                <row align="center">
-              
->>>>>>> 12735ad5f9a5a04233082f8ffd7694550c228bd4
+               Ratings:
                 {% if review.rating == 'excelent' %}
                 {% for i in i|rjust:5  %}
                  <i class="fa fa-star text-success"></i>
@@ -116,7 +112,7 @@
           	  </div>
             </div>
           	</div>
-          	
+          	{% endfor %}
         </div>  
 
           		</div>
