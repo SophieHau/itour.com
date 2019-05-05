@@ -9,8 +9,8 @@ class BookingForm(forms.ModelForm):
         fields = ['tour', 'number_of_people', 'start_date', 'end_date', 'price']
         widgets = {
         # format='%d-%m-%Y'
-            'start_date': DatePickerInput(), # default date-format %m/%d/%Y will be used
-            'end_date': DatePickerInput(), # specify date-frmat
+            'start_date': DatePickerInput(attrs={'required':'required'}), # default date-format %m/%d/%Y will be used
+            'end_date': DatePickerInput(attrs={'required':'required'}), # specify date-frmat
             'price': forms.NumberInput(attrs={'readonly': 'readonly', 'class': 'form-control-plaintext'}),
-            'number_of_people': forms.NumberInput(attrs={'min':1, 'max': 20}), 
+            'number_of_people': forms.NumberInput(attrs={'min':1, 'max': 20}),
         }

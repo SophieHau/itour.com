@@ -23,7 +23,7 @@ def create(request, tour_id=None):
         if form.is_valid():
             booking = form.save(False)
             tour = booking.tour
-            booking.price = booking.number_of_people * tour.price
+            booking.price = booking.number_of_people * tour.price 
             if request.user.is_authenticated:
                 booking.user = request.user
                 booking.save()
