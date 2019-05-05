@@ -76,10 +76,12 @@
               </div>
               <p>
               <div class="container card">
-                            	
-              {% for review in tour.review_set.all|slice:"0:1" %}
+
+              {% for booking in tour.booking_set.all|slice:"0:1" %}
+              {% for review in booking.review_booking.all|slice:"0:1" %}   	
+
                 <row align="center">
-               
+              
                 {% if review.rating == 'excelent' %}
                 {% for i in i|rjust:5  %}
                  <i class="fa fa-star text-success"></i>
@@ -109,6 +111,8 @@
                 {% endif %}
               </row>
               {% endfor %}
+              {% endfor %}
+              
           	  </div>
             </div>
           	</div>
