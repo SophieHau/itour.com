@@ -12,4 +12,4 @@ class Booking(models.Model):
 	price = models.DecimalField(max_digits=8, decimal_places=2, null=True)
 
 	def __str__(self):
-		return self.user
+		return self.user.username + ' - ' + str(self.start_date)
