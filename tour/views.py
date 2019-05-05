@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Tour
 from review.models import Review
+from booking.models import Booking
 from .forms import TourForm
 from django.db.models import Q
 from django.contrib.auth.decorators import permission_required, login_required
@@ -15,14 +16,15 @@ def index(request):
         })
 
 def show_tour(request, tour_id):
-	tour = Tour.objects.get(pk=tour_id)
-	print(tour)
-	reviews = Review.objects.filter(tour=tour)
+    tour = Tour.objects.get(pk=tour_id)
+    bookings = Booking.objects.filter(tour=tour)
+    print(bookings)
+    # reviews = bookings.review_set.all()
+    # reviews = Review.objects.filter(booking=bookings)
 	# reviews = Review.objects.get(tour=tour)
-	print(reviews)
-	return render(request, 'tour.html', {
-			'tour': tour,
-			'reviews': reviews
+    print(bookings)
+    return render(request, 'tour.html', {'tour': tour,
+			'bookings': bookings
 		})
 
 

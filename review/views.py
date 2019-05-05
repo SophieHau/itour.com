@@ -15,20 +15,33 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='signin')
 def add_review(request): 
+	user = request.user
 	if request.method == 'POST':
-		print('post')
-		form = ReviewForm(request.POST)
+		form = ReviewForm(user, request.POST)
 		if form.is_valid():
-			print('form valid')
 			new_review = form.save(commit=False)
-			# print(new_review)
-			# print(User.objects.get(user=request.user))
+			# new_channel.profile=Profile.objects.get(user=request.user)
 			new_review.user=request.user
 			print('new review')
 			new_review.save()
 			return redirect('tour:index')
+		else:
+			print('erro')
+			user = request.user
+			print(form.errors)
+			return render(request, 'add_review.html', { 'form': ReviewForm(user)})
 	else:
-		user = request.user
-		# print(user)
-		tours = ''
 		return render(request, 'add_review.html', { 'form': ReviewForm(user)})
+		# return render(request, 'add_review.html', { 'form': ReviewForm()})
+
+def requestAjax(request):
+	pass
+   # data = {
+   #      'is_valid': False}
+   # if request.is_ajax():
+   #    message = request.POST.get('message')
+   #    if message == 'I want an AJAX response':
+   #       data.update(is_valid=True)
+   #       data.update('response'='This is the response you wanted')
+
+   # return JsonResponse(data)

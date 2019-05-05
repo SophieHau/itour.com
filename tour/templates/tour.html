@@ -37,41 +37,43 @@
 			<div class="container card">
 			    	<h5>Reviews</h5>
 			    	<ul>
-				{% for review in reviews %}
-			    <row><li>{{ review.user }} in {{ review.date }} </li></row>
+ 
+				{% for booking in bookings %}
+			    <row><li>{{ booking.user }} </li></row>
 			    
+			    {% for review in booking.review_booking.all %}
 			    <row align="center">
                
+                {{ review.rating }}
                 {% if review.rating == 'excelent' %}
-                {% for i in i|rjust:5  %}
+                 <i class="fa fa-star text-success"></i> 
                  <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
+             	 <i class="fa fa-star text-success"></i>
+             	 <i class="fa fa-star text-success"></i>
+             	 <i class="fa fa-star text-success"></i>
                 
-                {% if review.rating == 'very good' %}
-                 {% for i in i|rjust:4  %}
+                {% elif review.rating == 'very good' %}
+                 <i class="fa fa-star text-success"></i> 
                  <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
+             	 <i class="fa fa-star text-success"></i>
+             	 <i class="fa fa-star text-success"></i>  
 
-                {% if review.rating == 'good' %}
-                {% for i in i|rjust:3  %}
+                {% elif review.rating == 'good' %}
                  <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
-
-                {% if review.rating == 'fair' %}
-                {% for i in i|rjust:2  %}
                  <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
+                 <i class="fa fa-star text-success"></i>
+               
+                {% elif review.rating == 'fair' %}
+                  <i class="fa fa-star text-success"></i>
+                  <i class="fa fa-star text-success"></i>
 
-                {% if review.rating == 'poor' %}
+                {% elif review.rating == 'poor' %}
                   <i class="fa fa-star text-success"></i>
                 {% endif %}
               </row>
               <br>
-			    {{ review.text }}<p>
+			    {{ review.rating.text }}<p>
+				{% endfor %}
 				{% endfor %}
 			</ul>
 			</p>
