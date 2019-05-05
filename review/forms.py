@@ -12,7 +12,7 @@ class ReviewForm(forms.ModelForm):
 		self.fields['booking'] = forms.ModelChoiceField(
             queryset=Booking.objects.filter(user=user))
 		
-	booking = forms.ModelChoiceField(queryset=Booking.objects.all())
+	# booking = forms.ModelChoiceField(queryset=Booking.objects.all())
 	rating = forms.ChoiceField(choices=Review.RATING_CHOICES, initial='good')
 	text = forms.CharField(widget=forms.Textarea)
 	
