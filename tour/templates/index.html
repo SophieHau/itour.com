@@ -52,7 +52,7 @@
 	</div>
 		<div class="container mt-5 mb-5">
 		<div class="row">
-							{% for tour in tours %}
+			{% for tour in tours %}	
 			<div class="col-md-4">
 				<div class="card mb-4 shadow-sm">
             	<img class="card-img-top" src="media/{{ tour.pic }}">
@@ -73,7 +73,6 @@
               </div>
 
               {% for review in tour.review_set.all|slice:"0:1" %}
-                <row align="left">
                <hr>
                <p> Guest rating :
                 {% if review.rating == 'excelent' %}
@@ -104,15 +103,12 @@
                   <i class="fa fa-star text-success"></i>
                 {% endif %}
             	</p>
-              </row>
               {% endfor %}
-          	  </div>
-            
-            </div>
-          	</div>
-          	{% endfor %}
-        </div>  
-       </div>
+          </div>
+          	  </div>   
+        </div>
+{% endfor %}
+    </div>
     </div>
     
     <div class="container">

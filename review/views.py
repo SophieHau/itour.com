@@ -4,6 +4,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.http import HttpResponse, Http404
 from .models import Review
+from booking.models import Booking
+from review.models import Review
+from tour.models import Tour
 from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 # from profileapp.models import Profile
@@ -25,4 +28,7 @@ def add_review(request):
 			new_review.save()
 			return redirect('tour:index')
 	else:
-	    return render(request, 'add_review.html', { 'form': ReviewForm })
+		user = request.user
+		# print(user)
+		tours = ''
+		return render(request, 'add_review.html', { 'form': ReviewForm(user)})

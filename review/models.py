@@ -14,7 +14,7 @@ class Review(models.Model):
 )
 
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+	booking = models.ForeignKey(Booking, on_delete=models.CASCADE, default=1)
 	text = models.CharField(default='', blank=True, null=True, max_length = 100)
 	rating = models.CharField(choices=RATING_CHOICES, default="good", max_length=9)
 	date = models.DateTimeField(auto_now_add=True)	
