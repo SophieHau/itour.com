@@ -4,7 +4,7 @@ let priceControl = document.getElementById('id_price');
 
 tourControl.onchange = manageChangeID;
 numberControl.onchange = updatePrice;
-
+window.onload = showReviews;
 
 function getPriceForSelectedTour() {
 	let tourId = tourControl.value;
