@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 import json
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
-
+from datetime import datetime
 
 def create(request, tour_id=None):
     if tour_id != None:
@@ -15,7 +15,7 @@ def create(request, tour_id=None):
     else:
         tour = Tour.objects.first()
     form = BookingForm(initial={
-            'tour': tour, 
+         
             'price': tour.price, 
             'number_of_people': 1
         })
@@ -74,16 +74,24 @@ def fetch_reviews(request, tour_id):
     # }
     # bookings = Booking.objects.filter(tour=tour).values()
     bookings = Booking.objects.filter(tour=tour)
+    print('bookings')
     print(bookings)
     review = ''
     for booking in bookings:
         review = booking.review_booking.all()
-    rating = review[0].rating
-    user = review[0].user
-    date = review[0].date
+    print('review')
+    print(review)
+    if review.count() > 0:
+        rating = review[0].rating
+        user = review[0].user.username
+        date = review[0].date
+    else:
+        rating = 'good'
+        user = 'anonymous'
+        date = str(datetime.now())
     json = {}
     json['rating'] = rating
-    json['user'] = user.username
+    json['user'] = user
     json['date'] = date
     print('json')
     print(json)

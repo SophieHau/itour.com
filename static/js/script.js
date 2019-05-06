@@ -42,6 +42,7 @@ function showReviews() {
         success: function (data) { 
         	// console.log(data[tour_id]);	
         	console.log(data);
+        	console.log(tourId);
         	// console.log(data['json'][0])
            // $( '#message' ).text(data['json'][0]['user_id']);
 

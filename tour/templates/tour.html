@@ -40,8 +40,7 @@
 			    
 			    {% for review in booking.review_booking.all %}
 			    <row align="center">
-               
-                {{ review.rating }}
+               	
                 {% if review.rating == 'excelent' %}
                  <i class="fa fa-star text-success"></i> 
                  <i class="fa fa-star text-success"></i>
@@ -67,6 +66,8 @@
                 {% elif review.rating == 'poor' %}
                   <i class="fa fa-star text-success"></i>
                 {% endif %}
+
+                - {{ review.date }}
               </row>
               <br>
 			    {{ review.rating.text }}<p>
