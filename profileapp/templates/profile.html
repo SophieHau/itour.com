@@ -2,9 +2,37 @@
 {% block title %}Profile{% endblock %}
 {% block content %}
 <div class="container">
-	<h1>Username: {{request.user.username}}</h1>
-	<p>Bio: {{profile.bio}}</p>
-	<p><img src={{ profile.pic }} />
+	<div class="row">
+		<div class="col-md-5 mr-5">
+			<h1>Hi {{request.user.username|capfirst}}</h1>
+	
+			<img src="{{ profile.pic }}" class="card-img-top mt-3"/>
+			<form class="form-group mt-3" method="POST" enctype="multipart/form-data">
+   			{% csrf_token %}
+				<input class="form-control-file" type="file" name="profile_pic"><br>
+			 	<button type="submit" class="btn btn-secondary">Upload</button>
+  			</form>
+  			<hr>
+  			<h5>Bio: <span>{{profile.bio|capfirst}}</span></h5>
+  			
+  		</div>
+  		<div class="col-md-5 ml-5">
+  			<hr>
+			<form method="POST" action="{% url 'add_bio' %}" >
+				{% csrf_token %}
+				<div class="form-group">
+				<label>Add a short bio:</label>
+				<textarea class="form-control" name="bio" rows="3"></textarea>
+				<button type="submit" class="btn btn-secondary mt-3">Add</button>
+				</div>
+			</form>
+				<div class="card">
+				  <div class="card-body">
+				    <a href="{% url 'show_all_bookings' %}" class="btn btn-secondary btn-block">Bookings</a>
+				  </div>
+				</div>
+		</div>
+	</div>
 </div>
 
 {% endblock %}

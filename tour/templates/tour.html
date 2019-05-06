@@ -31,15 +31,16 @@
 
 			<div class="mt-2 shadow p-3 mb-5 bg-white rounded">
 			    <p class="card-text">{{ tour.description }}
-			    	
+			</p>
+			</div>    	
 
 			<hr>
 			<div class="container card">
-			    	<h5>Reviews</h5>
+			    	<h5 class="card-title">Reviews</h5>
 			    	<ul>
  
 				{% for booking in bookings %}
-			    <row><li>{{ booking.user }} </li></row>
+			    <row><li>{{ booking.user|capfirst }} </li></row>
 			    
 			    {% for review in booking.review_booking.all %}
 			    <row align="center">
@@ -73,12 +74,11 @@
                 - {{ review.date }}
               </row>
               <br>
-			    {{ review.text }}<p>
+			   <p> {{ review.text }}
 				{% endfor %}
 				{% endfor %}
 			</ul>
 			</p>
-		</div>
 			</div>
 		</div>
 		<div class="col-4">
