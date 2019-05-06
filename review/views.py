@@ -33,15 +33,3 @@ def add_review(request):
 	else:
 		return render(request, 'add_review.html', { 'form': ReviewForm(user)})
 		# return render(request, 'add_review.html', { 'form': ReviewForm()})
-
-def requestAjax(request):
-	pass
-   # data = {
-   #      'is_valid': False}
-   # if request.is_ajax():
-   #    message = request.POST.get('message')
-   #    if message == 'I want an AJAX response':
-   #       data.update(is_valid=True)
-   #       data.update('response'='This is the response you wanted')
-
-   # return JsonResponse(data)

@@ -12,6 +12,8 @@
           <div class="card">
             <div class="card-body"> 
               <h1>Bookings</h1>
+              <h5> Reviews </h5>
+              <div class="card card-body"><span id="message"></span></div>
               <table>
               <form method="post" action="{% url 'create' %}">
                 {% csrf_token %}
@@ -27,7 +29,11 @@
     <script type="text/javascript">
       const TOUR_DATA = {{ tour_data|safe }}; 
     </script>
-
-    <script src="{% static '/js/script.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+    
+    
+    
+    <script src="{% static '/js/script.js' %}" type="text/javascript" charset="utf-8" async defer>
+      
+    </script>
 
 {% endblock %}
