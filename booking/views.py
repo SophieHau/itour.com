@@ -15,7 +15,7 @@ def create(request, tour_id=None):
     else:
         tour = Tour.objects.first()
     form = BookingForm(initial={
-         
+            'tour': tour,
             'price': tour.price, 
             'number_of_people': 1
         })
