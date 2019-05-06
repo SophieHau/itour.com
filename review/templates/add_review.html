@@ -2,12 +2,18 @@
 {% block title %}Add Review{% endblock %}
 {% block content %}
 <div class="container">
-  <form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit">
-  </form>
+	<div class="row justify-content-center">
+		<div class="col-md-6 justify-content-center">
+		<h1>Write a review</h1>
+		  <form action="" method="post" class="mt-5">
+		    {% csrf_token %}
+		    <table>
+		    {{ form.as_table }}
+		    </table>
+		    <hr>
+		    <input type="submit" class="btn btn-secondary btn-lg my-2 my-sm-0" value="Send">
+		  </form>
+		</div>
+	</div>
 </div>
 {% endblock %}

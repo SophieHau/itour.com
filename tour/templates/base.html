@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +48,7 @@
           <a class="nav-link" href="{% url 'create' %}">Booking</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'show_all_bookings' %}">My Bookings</a>
+          <a class="nav-link" href="{% url 'show_user_bookings' %}">My Bookings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'add_review' %}">Review</a>
