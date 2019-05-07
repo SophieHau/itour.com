@@ -86,9 +86,65 @@
 </header>
 
 {% endblock %}
-<!-- <div class='container'> -->
   {% block content %} {% endblock %}
-<!-- </div> -->
+  <hr class="mt-5">
+<div class="row">
+
+<footer class="py-3">
+<div class="container">
+   <div class="row">
+      <div class="col-md-6">
+         <div class="row">
+            <div class="col-md-6 ">
+               <div class="logo-part">
+                  <img src="{% static 'icons/apple-touch-icon.png' %}" class="w-50 logo-footer" >
+               </div>
+            </div>
+            <div class="col-md-6 px-4">
+               <h6> About Us</h6>
+               <p>The best tours on the Web!</p>
+               <a href="#" class="btn-footer"> More Info </a><br>
+<!--                <a href="#" class="btn-footer"> Contact Us</a>
+ -->            </div>
+         </div>
+      </div>
+      <div class="col-md-6">
+         <div class="row">
+            <div class="col-md-6 px-4">
+               <h6>Links</h6>
+               <div class="row ">
+                  <div class="col-md-6">
+                     <ul>
+                        <li> <a href="{% url 'tour:index' %}"> Home</a> </li>
+                        <li> <a href="{% url 'tour:show_all_tours' %}"> Tours</a> </li>
+                        <li> <a href="{% url 'signup' %}"> Sign up</a> </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-6 px-4">
+                     <ul>
+                        <li> <a href="#"> About</a> </li>
+                        <li> <a href="#"> Terms</a> </li>
+                        <li> <a href="#"> Policy</a> </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6 ">
+               <h6> Follow Us</h6>
+               <div class="social">
+                  <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="https://www.pinterest.com" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+               </div>
+               <p class="mt-2">Built by the best DI team with Django, Bootstrap and magic.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
