@@ -30,9 +30,11 @@ def create(request, tour_id=None):
             if request.user.is_authenticated:
                 booking.user = request.user
                 booking.save()
+                request.session['booking_id'] = booking.id
             else:
                 booking.save()
-            return redirect('payment:make_payment', booking_id=booking.id)
+                request.session['booking_id'] = booking.id
+            return redirect('payment:make_payment')
     return render(request, 'booking.html', {
             'form': form,
             'tour_data': tour_data,
