@@ -2,12 +2,22 @@
 {% block title %}Add Review{% endblock %}
 {% block content %}
 <div class="container">
-  <form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit">
-  </form>
-</div>
+	<div class="row justify-content-center">
+        <div class="col-xs-12 col-lg-6">
+          	<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            	<div class="card-body p-2">
+            		<h1>Reviews</h1>
+            			<div class="card card-body"><span id="message"></span></div>
+    					<table>
+  						<form action="" method="post">
+						    {% csrf_token %}
+						    {{ form.as_table }}
+    					</table>
+    					<input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit">
+  						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				
 {% endblock %}
