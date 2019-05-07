@@ -40,9 +40,10 @@
 			    	<ul>
  
 				{% for booking in bookings %}
-			    <row><li>{{ booking.user|capfirst }} </li></row>
+				{% for review in booking.review_booking.all %}
+
+			    <row><li>{{ review.user|capfirst }} </li></row>
 			    
-			    {% for review in booking.review_booking.all %}
 			    <row align="center">
                	
                 {% if review.rating == 'excelent' %}
