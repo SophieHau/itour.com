@@ -102,7 +102,7 @@ footer ul  li a{
   color: grey;
   text-decoration:none;
 }
-a:hover {
+footer ul  li a:hover {
     text-decoration: none;
     color: rgba(211,85,50, 1) !important;
     
@@ -124,6 +124,10 @@ body {
 }
 
 .nav-link{
+    color: rgba(211,85,50, 1) !important;
+}
+
+.dropdown-item{
     color: rgba(211,85,50, 1) !important;
 }
 
