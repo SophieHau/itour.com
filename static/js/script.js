@@ -81,7 +81,7 @@ function showReviews() {
 				stars = poor;
 			}
 			date_review = new Date(data['date']);
-			date_review = date_review.getDate() + '/' + date_review.getMonth() + '/' + date_review.getYear();	
+			date_review = date_review.getDate() + '/' + date_review.getMonth() + '/' + date_review.getFullYear();	
 			// let formatted_date = date_review + "-" + (date_review.getMonth() + 1) + "-" + date_review.getFullYear();
 			$('#message').html(stars + ' by ' + data['user'] + ' in ' + date_review);
           	}
