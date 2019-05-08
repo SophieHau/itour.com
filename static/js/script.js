@@ -80,9 +80,10 @@ function showReviews() {
 			else if (data['rating'] === 'poor') {
 				stars = poor;
 			}
-			date_review = Date(data['date']);	
+			date_review = new Date(data['date']);
+			date_review = date_review.getDate() + '/' + date_review.getMonth() + '/' + date_review.getYear();	
 			// let formatted_date = date_review + "-" + (date_review.getMonth() + 1) + "-" + date_review.getFullYear();
-			$('#message').html(stars + ' by ' + data['user'] + ' in ' + '<small>' + date_review + '</small>');
+			$('#message').html(stars + ' by ' + data['user'] + ' in ' + date_review);
           	}
 			});
 	}
