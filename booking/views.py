@@ -84,13 +84,10 @@ def fetch_reviews(request, tour_id):
     # }
     # bookings = Booking.objects.filter(tour=tour).values()
     bookings = Booking.objects.filter(tour=tour)
-    print('bookings')
-    print(bookings)
     review = ''
     for booking in bookings:
         review = booking.review_booking.all()
-    print('review')
-    print(review)
+
     if review.count() > 0:
         rating = review[0].rating
         user = review[0].user.username
@@ -103,7 +100,6 @@ def fetch_reviews(request, tour_id):
     json['rating'] = rating
     json['user'] = user
     json['date'] = date
-    print('json')
-    print(json)
+
     return JsonResponse(json, safe=False)
    

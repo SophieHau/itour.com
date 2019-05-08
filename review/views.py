@@ -22,13 +22,10 @@ def add_review(request):
 			new_review = form.save(commit=False)
 			# new_channel.profile=Profile.objects.get(user=request.user)
 			new_review.user=request.user
-			print('new review')
 			new_review.save()
 			return redirect('tour:index')
 		else:
-			print('erro')
 			user = request.user
-			print(form.errors)
 			return render(request, 'add_review.html', { 'form': ReviewForm(user)})
 	else:
 		return render(request, 'add_review.html', { 'form': ReviewForm(user)})

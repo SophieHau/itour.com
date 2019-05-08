@@ -22,11 +22,9 @@ def show_about(request):
 def show_tour(request, tour_id):
     tour = Tour.objects.get(pk=tour_id)
     bookings = Booking.objects.filter(tour=tour)
-    print(bookings)
     # reviews = bookings.review_set.all()
     # reviews = Review.objects.filter(booking=bookings)
 	# reviews = Review.objects.get(tour=tour)
-    print(bookings)
     return render(request, 'tour.html', {'tour': tour,
 			'bookings': bookings
 		})
