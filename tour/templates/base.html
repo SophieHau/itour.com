@@ -34,11 +34,9 @@
           Our tours
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'tour:show_all_tours' %}">All</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+          <a class="dropdown-item" href="{% url 'tour:show_all_tours' %}">All tours</a>
+          <a class="dropdown-item" href="{% url 'tour:show_one_day_tours' %}">One day tours</a>
+          <a class="dropdown-item" href="{% url 'tour:show_multi_day_tours' %}">Mulit-day tours</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="{% url 'create' %}">Booking</a>
