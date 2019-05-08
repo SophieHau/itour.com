@@ -47,15 +47,13 @@
 			  </div>
 			</div>
 		</div>
-
-	
 	</div>
-		<div class="container mt-5 mb-5">
-		<div class="row">
+		
+	<div class="row mt-5 mb-5 mr-3 ml-3">
 			{% for tour in tours %}	
-			<div class="col-md-4 col-xs-12 mr-3 ml-3">
+			<div class="col-md-4 col-xs-12 pr-3 pl-3">
 				<div class="card mb-4 shadow p-3 mb-5 bg-white rounded">
-            	<img class="card-img-top" src="media/{{ tour.pic }}">
+            	<img class="card-img-top"  src="media/{{ tour.pic }}">
             	<div class="card-body">
             		{% if tour.length > 1 %}
             		<h5 class="card-title">{{ tour.name }} <br> ({{ tour.length }} days)</h5>
@@ -114,10 +112,6 @@
           	</div>
           	{% endfor %}
         </div>  
-
-          		</div>
-
-    </div>
     
     <div class="container">
     	<hr>
