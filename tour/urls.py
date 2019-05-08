@@ -5,6 +5,7 @@ app_name = 'tour'
 
 urlpatterns = [
 	path('', views.index, name='index'),
+	path('about/', views.show_about, name='about'),
 	path('tours/tour/<int:tour_id>', views.show_tour, name='show_tour'),
 	path('tours/search', views.search_tours, name='search_tours'),
 	path('tours/', views.show_all_tours, name='show_all_tours'),

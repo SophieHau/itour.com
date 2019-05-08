@@ -16,6 +16,9 @@ def index(request):
             'tours': tours
         })
 
+def show_about(request):
+    return render(request, 'about.html')
+
 def show_tour(request, tour_id):
     tour = Tour.objects.get(pk=tour_id)
     bookings = Booking.objects.filter(tour=tour)
