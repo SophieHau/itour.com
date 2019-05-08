@@ -37,34 +37,24 @@
 			    <row><li>{{ review.user|capfirst }} </li></row>
 			    
 			    <row align="center">
-               	
+
+
                 {% if review.rating == 'excelent' %}
-                 <i class="fa fa-star text-success"></i> 
-                 <i class="fa fa-star text-success"></i>
-             	 <i class="fa fa-star text-success"></i>
-             	 <i class="fa fa-star text-success"></i>
-             	 <i class="fa fa-star text-success"></i>
+                 <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i>
                 
                 {% elif review.rating == 'very good' %}
-                 <i class="fa fa-star text-success"></i> 
-                 <i class="fa fa-star text-success"></i>
-             	 <i class="fa fa-star text-success"></i>
-             	 <i class="fa fa-star text-success"></i>  
+                 <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i></small>  
 
                 {% elif review.rating == 'good' %}
-                 <i class="fa fa-star text-success"></i>
-                 <i class="fa fa-star text-success"></i>
-                 <i class="fa fa-star text-success"></i>
+                 <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
                
                 {% elif review.rating == 'fair' %}
-                  <i class="fa fa-star text-success"></i>
-                  <i class="fa fa-star text-success"></i>
+                  <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"><small></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
 
                 {% elif review.rating == 'poor' %}
-                  <i class="fa fa-star text-success"></i>
+                  <i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
                 {% endif %}
-
-                - {{ review.date }}
+                - {{ review.date|date:'d-m-Y - H:i\h a' }}
               </row>
               <br>
 			   <p> {{ review.text }}

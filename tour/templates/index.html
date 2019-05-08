@@ -77,32 +77,20 @@
               {% for booking in tour.booking_set.all|slice:"0:1" %}
               {% for review in booking.review_booking.all|slice:"0:1" %}   	
                Ratings:
-                {% if review.rating == 'excelent' %}
-                {% for i in i|rjust:5  %}
-                 <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
+                 {% if review.rating == 'excelent' %}
+                 <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i>
                 
-                {% if review.rating == 'very good' %}
-                 {% for i in i|rjust:4  %}
-                 <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
+                {% elif review.rating == 'very good' %}
+                 <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i></small>  
 
-                {% if review.rating == 'good' %}
-                {% for i in i|rjust:3  %}
-                 <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
+                {% elif review.rating == 'good' %}
+                 <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
+               
+                {% elif review.rating == 'fair' %}
+                  <i class="fa fa-star text-success"></i><i class="fa fa-star text-success"></i><i class="fa fa-star text-success"><small></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
 
-                {% if review.rating == 'fair' %}
-                {% for i in i|rjust:2  %}
-                 <i class="fa fa-star text-success"></i>
-                {% endfor %}
-                {% endif %}
-
-                {% if review.rating == 'poor' %}
-                  <i class="fa fa-star text-success"></i>
+                {% elif review.rating == 'poor' %}
+                  <i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
                 {% endif %}
             	</p>
               {% endfor %}
