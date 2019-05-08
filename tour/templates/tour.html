@@ -54,7 +54,7 @@
                 {% elif review.rating == 'poor' %}
                   <i class="fa fa-star text-success"></i><small><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i><i class="fa fa-star text-muted bg-transparent"></i></small>
                 {% endif %}
-                - {{ review.date|date:'d-m-Y - H:i\h a' }}
+                - {{ review.date|date:'d-m-Y' }}
               </row>
               <br>
 			   <p> {{ review.text }}
