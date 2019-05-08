@@ -88,7 +88,7 @@ footer h6:after {
     color: white;
     font-size: 22px;
     padding: 10px 15px;
-    background: #a8f9dd;
+    background: #d35532;
 }
      footer ul li {
     list-style: none;
@@ -123,3 +123,18 @@ body {
 	background-color: ghostwhite;
 }
 
+.nav-link{
+    color: rgba(211,85,50, 1) !important;
+}
+
+nav{
+    background-color: white;
+}
+
+.btn-carousel{
+    color: rgba(211,85,50, 1);
+}
+
+.h1-about{
+    color: rgba(211,85,50, 1);
+}

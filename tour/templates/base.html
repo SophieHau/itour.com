@@ -19,8 +19,8 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md sticked-top navbar-light shadow-sm mb-5" style="background-color: deepskyblue;" >
-    <a href="{% url 'tour:index' %}"> <img src="{% static 'icons/apple-touch-icon.png' %}" width="45" height="45">
+  <nav class="navbar navbar-expand-md sticked-top navbar-light shadow-sm mb-5" >
+    <a class="ml-3 " href="{% url 'tour:index' %}"> <img src="{% static 'icons/apple-touch-icon.png' %}" width="45" height="45">
 </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,11 +35,9 @@
           Our tours
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'tour:show_all_tours' %}">All</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+          <a class="dropdown-item" href="{% url 'tour:show_all_tours' %}">All tours</a>
+          <a class="dropdown-item" href="{% url 'tour:show_one_day_tours' %}">One day tours</a>
+          <a class="dropdown-item" href="{% url 'tour:show_multi_day_tours' %}">Mulit-day tours</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="{% url 'create' %}">Booking</a>
@@ -52,13 +50,13 @@
           </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
+          <a class="nav-link" href="{% url 'tour:about' %}">About us</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0" method="POST" action="{% url 'tour:search_tours' %}">
         {% csrf_token %}
-        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search our tours" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control search mr-sm-2" type="text" name="search" placeholder="Search our tours" aria-label="Search">
+        <button class="btn btn-carousel btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>
       </form>
         <div class="inline-block">
           <ul class="navbar-nav mr-auto">
@@ -80,13 +78,11 @@
 
     </div>
   </nav>
-</header>
 
 {% block content %} {% endblock %}
 
-
 <div class="row justify-content-center mt-5">
-<footer class="py-3">
+<footer class="py-3 mt-5">
 <div class="container">
    <div class="row">
       <div class="col-md-6">
@@ -98,7 +94,7 @@
             </div>
             <div class="col-md-6 px-4">
                <h6> About Us</h6>
-               <p>The best tours on the Web!</p>
+               <p>We'll take you places!</p>
                <a href="#" class="btn-footer"> More Info </a><br>
 <!--                <a href="#" class="btn-footer"> Contact Us</a>
  -->            </div>

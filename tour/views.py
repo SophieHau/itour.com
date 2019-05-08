@@ -16,6 +16,9 @@ def index(request):
             'tours': tours
         })
 
+def show_about(request):
+    return render(request, 'about.html')
+
 def show_tour(request, tour_id):
     tour = Tour.objects.get(pk=tour_id)
     bookings = Booking.objects.filter(tour=tour)
@@ -35,6 +38,21 @@ def show_all_tours(request):
             'tours': tours
         })
 
+def show_one_day_tours(request):
+    tours = Tour.objects.filter(length=1)
+    return render(request, 'tours_list.html', {
+            'tours': tours
+        })
+
+def show_multi_day_tours(request):
+    tours = Tour.objects.all()
+    tours_list = []
+    for tour in tours:
+        if tour.length > 1:
+            tours_list.append(tour)
+    return render(request, 'tours_list.html', {
+            'tours': tours_list
+        })
 
 def search_tours(request):
     context = None
