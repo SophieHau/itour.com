@@ -18,11 +18,8 @@
 </head>
 
 <body>
-  
-{% block nav %}
-
-  <nav class="navbar navbar-expand-md sticked-top navbar-light shadow-sm mb-5" style="background-color: deepskyblue;" >
-    <a href="{% url 'tour:index' %}"> <img src="{% static 'icons/apple-touch-icon.png' %}" width="45" height="45">
+  <nav class="navbar navbar-expand-md sticked-top navbar-light shadow-sm mb-5" >
+    <a class="ml-3 " href="{% url 'tour:index' %}"> <img src="{% static 'icons/apple-touch-icon.png' %}" width="45" height="45">
 </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -59,8 +56,8 @@
       </ul>
       <form class="form-inline mt-2 mt-md-0" method="POST" action="{% url 'tour:search_tours' %}">
         {% csrf_token %}
-        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search our tours" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control search mr-sm-2" type="text" name="search" placeholder="Search our tours" aria-label="Search">
+        <button class="btn btn-carousel btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>
       </form>
         <div class="inline-block">
           <ul class="navbar-nav mr-auto">
@@ -82,13 +79,11 @@
 
     </div>
   </nav>
-</header>
 
 {% block content %} {% endblock %}
 
-
 <div class="row justify-content-center mt-5">
-<footer class="py-3">
+<footer class="py-3 mt-5">
 <div class="container">
    <div class="row">
       <div class="col-md-6">
