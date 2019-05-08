@@ -58,8 +58,8 @@
               	<p class="homepage_card card-text overflow-auto">{{ tour.description }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{% url 'tour:show_tour' tour.id %}" role="button" class="btn btn-sm btn-outline-info mr-2">More Info</a>
-                  <a role="button" href="{% url 'create' tour.id %}" class="btn btn-sm btn-outline-info">Book</a>
+                  <a href="{% url 'tour:show_tour' tour.id %}" role="button" class="btn btn-sm btn-outline-secondary mr-2">More Info</a>
+                  <a role="button" href="{% url 'create' tour.id %}" class="btn btn-sm btn-outline-secondary">Book</a>
                 </div>
                 <small class="text-muted">{{ tour.price }}$</small>
               </div>
